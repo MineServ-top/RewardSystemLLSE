@@ -1,0 +1,9 @@
+{
+    "WebServerPort": "8080",
+    "SecretKey": "",
+    "LiteLoader": {
+        "Command1":"give $user diamond",
+        "Command2":"null",
+        "Command3":"null"
+    }
+}
