@@ -2,7 +2,7 @@ const config = require('./config.json')
 const server = require('http')
 const { parse } = require('querystring')
 var SHA256 = require("crypto-js/sha256")
-
+ll.registerPlugin('RewardSystemLLSE', 'Поддержка системы поощрений игроков для серверов использующих LLBDS от MineServ', [1,0,0])
 server.createServer((req,res)=>{
     let buf = ''
     req.on("data",(c)=>{
@@ -32,15 +32,15 @@ function checkSign(project,username,timestamp,signature){
 
 function main(proj,user,time,sign){
     if(config.LiteLoader.Command1 !== "null"){
-        console.log(time+" | Running command | "+config.LiteLoader.Command1.replaceAll('$user',user))
+        logger.info("Running command | "+config.LiteLoader.Command1.replaceAll('$user',user))
         mc.runCmdEx(config.LiteLoader.Command1.replaceAll('$user',user))
     }
     if(config.LiteLoader.Command2 !== "null"){
-        console.log(time+" | Running command | "+config.LiteLoader.Command2.replaceAll('$user',user))
+        logger.info("Running command | "+config.LiteLoader.Command2.replaceAll('$user',user))
         mc.runCmdEx(config.LiteLoader.Command2.replaceAll('$user',user))
     }
     if(config.LiteLoader.Command3 !== "null"){
-        console.log(time+" | Running command | "+config.LiteLoader.Command3.replaceAll('$user',user))
+        logger.info("Running command | "+config.LiteLoader.Command3.replaceAll('$user',user))
         mc.runCmdEx(config.LiteLoader.Command3.replaceAll('$user',user))
     }
 }
